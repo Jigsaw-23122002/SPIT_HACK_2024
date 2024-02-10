@@ -1,0 +1,41 @@
+type buyEvent @entity(immutable: true) {
+  id: Bytes!
+  param0: Bytes! # address
+  param1: Bytes! # address
+  param2: BigInt! # uint256
+  param3: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type mintEvent @entity(immutable: true) {
+  id: Bytes!
+  param0: Bytes! # address
+  param1: BigInt! # uint256
+  param2: String! # string
+  param3: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type putTokenOnSaleEvent @entity(immutable: true) {
+  id: Bytes!
+  param0: BigInt! # uint256
+  param1: Boolean! # bool
+  param2: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type transferEtherEvent @entity(immutable: true) {
+  id: Bytes!
+  param0: Bytes! # address
+  param1: Bytes! # address
+  param2: BigInt! # uint256
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
