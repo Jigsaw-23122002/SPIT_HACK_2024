@@ -20,13 +20,17 @@ contract MyArtsToken {
 
     event mintEvent(address, uint256, string, uint256);
 
-    function mint(string memory _metadata, uint256 _cost) public {
+    function mint(
+        string memory _metadata,
+        uint256 _cost
+    ) public returns (uint256) {
         tokenToUser[currentTokenId] = msg.sender;
         userToTokens[msg.sender].push(currentTokenId);
         metadataUri[currentTokenId] = _metadata;
         tokenCost[currentTokenId] = _cost;
         currentTokenId++;
         emit mintEvent(msg.sender, currentTokenId - 1, _metadata, _cost);
+        return currentTokenId - 1;
     }
 
     event transferEtherEvent(address, address, uint256);
@@ -68,17 +72,9 @@ contract MyArtsToken {
         emit putTokenOnSaleEvent(_tokenId, true, countOfTokensOnSale);
     }
 
-    event getTokenDetailsEvent(string, uint256, bool, address);
-
     function getTokenDetails(
         uint256 _tokenId
-    ) public returns (string memory, uint256, bool, address) {
-        emit getTokenDetailsEvent(
-            metadataUri[_tokenId],
-            tokenCost[_tokenId],
-            isTokenOnSale[_tokenId],
-            tokenToUser[_tokenId]
-        );
+    ) public view returns (string memory, uint256, bool, address) {
         return (
             metadataUri[_tokenId],
             tokenCost[_tokenId],
@@ -87,16 +83,11 @@ contract MyArtsToken {
         );
     }
 
-    event getMyTokensEvent(uint256[]);
-
-    function getMyTokens() public returns (uint256[] memory) {
-        emit getMyTokensEvent(userToTokens[msg.sender]);
+    function getMyTokens() public view returns (uint256[] memory) {
         return userToTokens[msg.sender];
     }
 
-    event getTokensOnSaleEvent(uint256[]);
-
-    function getTokensOnSale() public returns (uint256[] memory) {
+    function getTokensOnSale() public view returns (uint256[] memory) {
         uint256 current = 0;
         uint256[] memory tokenIds = new uint256[](countOfTokensOnSale);
 
@@ -106,7 +97,6 @@ contract MyArtsToken {
                 current++;
             }
         }
-        emit getTokensOnSaleEvent(tokenIds);
         return tokenIds;
     }
 }
