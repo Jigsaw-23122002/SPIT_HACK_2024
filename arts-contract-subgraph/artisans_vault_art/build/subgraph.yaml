@@ -1,0 +1,35 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: MyArtsContract
+    network: sepolia
+    source:
+      address: "0xe1da6f9847101ab4d01f6aa11f4a01ed6004daf8"
+      abi: MyArtsContract
+      startBlock: 5257858
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - buyEvent
+        - mintEvent
+        - putTokenOnSaleEvent
+        - transferEtherEvent
+      abis:
+        - name: MyArtsContract
+          file: MyArtsContract\abis\MyArtsContract.json
+      eventHandlers:
+        - event: buyEvent(address,address,uint256,uint256)
+          handler: handlebuyEvent
+        - event: mintEvent(address,uint256,string,uint256)
+          handler: handlemintEvent
+        - event: putTokenOnSaleEvent(uint256,bool,uint256)
+          handler: handleputTokenOnSaleEvent
+        - event: transferEtherEvent(address,address,uint256)
+          handler: handletransferEtherEvent
+      file: MyArtsContract\MyArtsContract.wasm
