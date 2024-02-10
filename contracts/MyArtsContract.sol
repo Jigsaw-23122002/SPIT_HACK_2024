@@ -20,10 +20,10 @@ contract MyArtsToken {
 
     event mintEvent(address, uint256, string, uint256);
 
-    function mint(
-        string memory _metadata,
-        uint256 _cost
-    ) public returns (uint256) {
+    function mint(string memory _metadata, uint256 _cost)
+        public
+        returns (uint256)
+    {
         tokenToUser[currentTokenId] = msg.sender;
         userToTokens[msg.sender].push(currentTokenId);
         metadataUri[currentTokenId] = _metadata;
@@ -72,9 +72,16 @@ contract MyArtsToken {
         emit putTokenOnSaleEvent(_tokenId, true, countOfTokensOnSale);
     }
 
-    function getTokenDetails(
-        uint256 _tokenId
-    ) public view returns (string memory, uint256, bool, address) {
+    function getTokenDetails(uint256 _tokenId)
+        public
+        view
+        returns (
+            string memory,
+            uint256,
+            bool,
+            address
+        )
+    {
         return (
             metadataUri[_tokenId],
             tokenCost[_tokenId],
@@ -98,5 +105,9 @@ contract MyArtsToken {
             }
         }
         return tokenIds;
+    }
+
+    function getLastTokenId() public view returns (uint256) {
+        return currentTokenId;
     }
 }
