@@ -18,13 +18,19 @@ contract MyArtsToken {
         _;
     }
 
+    event mintEvent(address, uint256, string, uint256);
+
     function mint(string memory _metadata, uint256 _cost) public {
         tokenToUser[currentTokenId] = msg.sender;
         userToTokens[msg.sender].push(currentTokenId);
         metadataUri[currentTokenId] = _metadata;
         tokenCost[currentTokenId] = _cost;
         currentTokenId++;
+        emit mintEvent(msg.sender, currentTokenId - 1, _metadata, _cost);
     }
+
+    event transferEtherEvent(address, address, uint256);
+    event buyEvent(address, address, uint256, uint256);
 
     function buy(uint256 _tokenId) public payable isValidTokenId(_tokenId) {
         require(isTokenOnSale[_tokenId] == true, "The token is not on sale.");
@@ -45,7 +51,11 @@ contract MyArtsToken {
             }
         }
         payable(to).transfer(msg.value);
+        emit transferEtherEvent(to, msg.sender, msg.value);
+        emit buyEvent(to, msg.sender, _tokenId, msg.value);
     }
+
+    event putTokenOnSaleEvent(uint256, bool, uint256);
 
     function putTokenOnSale(uint256 _tokenId) public {
         require(
@@ -55,11 +65,20 @@ contract MyArtsToken {
         require(isTokenOnSale[_tokenId] == false, "Token is already on sale.");
         isTokenOnSale[_tokenId] = true;
         countOfTokensOnSale++;
+        emit putTokenOnSaleEvent(_tokenId, true, countOfTokensOnSale);
     }
+
+    event getTokenDetailsEvent(string, uint256, bool, address);
 
     function getTokenDetails(
         uint256 _tokenId
-    ) public view returns (string memory, uint256, bool, address) {
+    ) public returns (string memory, uint256, bool, address) {
+        emit getTokenDetailsEvent(
+            metadataUri[_tokenId],
+            tokenCost[_tokenId],
+            isTokenOnSale[_tokenId],
+            tokenToUser[_tokenId]
+        );
         return (
             metadataUri[_tokenId],
             tokenCost[_tokenId],
@@ -68,11 +87,16 @@ contract MyArtsToken {
         );
     }
 
-    function getMyTokens() public view returns (uint256[] memory) {
+    event getMyTokensEvent(uint256[]);
+
+    function getMyTokens() public returns (uint256[] memory) {
+        emit getMyTokensEvent(userToTokens[msg.sender]);
         return userToTokens[msg.sender];
     }
 
-    function getTokensOnSale() public view returns (uint256[] memory) {
+    event getTokensOnSaleEvent(uint256[]);
+
+    function getTokensOnSale() public returns (uint256[] memory) {
         uint256 current = 0;
         uint256[] memory tokenIds = new uint256[](countOfTokensOnSale);
 
@@ -82,6 +106,7 @@ contract MyArtsToken {
                 current++;
             }
         }
+        emit getTokensOnSaleEvent(tokenIds);
         return tokenIds;
     }
 }
