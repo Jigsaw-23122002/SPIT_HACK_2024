@@ -1,0 +1,8 @@
+{
+  "sepolia": {
+    "MyArtsContract": {
+      "address": "0xe1da6f9847101ab4d01f6aa11f4a01ed6004daf8",
+      "startBlock": 5257858
+    }
+  }
+}
