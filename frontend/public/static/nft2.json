@@ -1,0 +1,35 @@
+[
+  {
+    "id": 2,
+    "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/album-cover-design-template-07f84184cff006c62e42b19daab6510a_screen.jpg?ts=1644160059",
+    "title": "Musical Inspiration #2",
+    "price": 0.028,
+    "quantity": 2,
+    "genre": "music",
+    "onSale": 0,
+    "creator": "HarmonyBeats",
+    "description": "Immerse yourself in musical wonders with HarmonyBeats' creation, a blend of melody and rhythm that sparks inspiration."
+  },
+  {
+    "id": 18,
+    "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/album-cover-design-template-0caa573a26676238b16b7224877bec17_screen.jpg?ts=1703973691",
+    "title": "Harmonic Progression #18",
+    "price": 0.082,
+    "quantity": 2,
+    "genre": "music",
+    "onSale": 1,
+    "creator": "HarmonyBeats",
+    "description": "Experience harmonic progression with HarmonyBeats, where musical notes intertwine to create a symphony of rhythmic beauty."
+  },
+  {
+    "id": 22,
+    "image": "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/album-cover-design-template-0833bcefe70f0594884009d7858ba91c_screen.jpg?ts=1704096119",
+    "title": "Melodic Imagination #22",
+    "price": 0.091,
+    "quantity": 8,
+    "genre": "music",
+    "onSale": 1,
+    "creator": "HarmonyBeats",
+    "description": "Embark on a journey of melodic imagination with HarmonyBeats, where musical notes paint vivid pictures of sonic creativity."
+  }
+]

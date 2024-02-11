@@ -1,0 +1,46 @@
+[
+  {
+    "id": 4,
+    "image": "https://images-platform.99static.com//4f-AljZDea80NTdsWo6PQwypUP0=/0x0:1024x1024/fit-in/500x500/99designs-contests-attachments/112/112215/attachment_112215478",
+    "title": "Digital Excellence #4",
+    "price": 0.092,
+    "quantity": 9,
+    "genre": "software",
+    "onSale": 0,
+    "creator": "TechInnovate",
+    "description": "Explore the frontier of digital excellence crafted by TechInnovate, where innovation meets cutting-edge technology."
+  },
+  {
+    "id": 8,
+    "image": "https://miro.medium.com/v2/resize:fit:640/1*InZw9eeTPgLEanlETUStKw.png",
+    "title": "Virtual Insight #8",
+    "price": 0.086,
+    "quantity": 5,
+    "genre": "software",
+    "onSale": 0,
+    "creator": "TechInnovate",
+    "description": "Gain virtual insights with TechInnovate's creation, a digital marvel that pushes the boundaries of technological possibilities."
+  },
+  {
+    "id": 12,
+    "image": "https://play-lh.googleusercontent.com/57TaMq02vhJBhazGr8ESCfOqlcm8G0OIQYk-VIRp94oG9_AJ2n_2CEdakoGbykV7o7Qx",
+    "title": "Tech Innovation #12",
+    "price": 0.093,
+    "quantity": 9,
+    "genre": "software",
+    "onSale": 1,
+    "creator": "TechInnovate",
+    "description": "Witness the forefront of tech innovation with TechInnovate, a digital masterpiece pushing the boundaries of software creativity."
+  },
+  {
+    "id": 24,
+    "image": "https://i.pinimg.com/originals/25/87/43/258743b8c086c4231778e1ed669d2536.jpg",
+    "title": "Tech Marvel #24",
+    "price": 0.091,
+    "quantity": 5,
+    "genre": "software",
+    "onSale": 1,
+    "creator": "TechInnovate",
+    "description": "Witness the tech marvels crafted by TechInnovate, pushing the boundaries of software creativity to new heights."
+  }
+]
